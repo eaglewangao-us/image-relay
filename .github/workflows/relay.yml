@@ -27,12 +27,6 @@ jobs:
       contents: read
       packages: write
     steps:
-      - name: 腾空间（runner 默认盘小，先删掉用不上的预装内容）
-        run: |
-          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc \
-                      /usr/local/share/boost "$AGENT_TOOLSDIRECTORY" || true
-          df -h /
-
       - name: 装 skopeo
         run: |
           sudo apt-get update -qq
